@@ -33,7 +33,7 @@ def query_model(error_code):
         return "Sorry, I couldn’t find anything about that error code."
 
     context = "\n\n".join(matched_chunks)
-    prompt = f"{context}\n\nBased on the above data, explain the meaning, cause, and fix for error code {error_code} in a car. Answer like you are explaing to a non mechanic driver of the vehicle. Respond in 50 words only!! "
+    prompt = f"{context}\n\nBased on the above data, generate a detailed report regarding the error codes {error_code} in a car. Include the problem, potential causes and fixes. Include citations for points made, and tailor the report for a non mechanic driver of the vehicle."
 
     response = model.generate_content(prompt)
     return response.text.strip()
